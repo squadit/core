@@ -1,0 +1,19 @@
+ext {
+    bintrayRepo = 'android'
+    bintrayName = 'com.athena.core'
+    libraryName = 'app'
+
+    publishedGroupId = 'com.athena.core'
+    artifact = 'core'
+    libraryVersion = '0.0.1'
+
+    libraryDescription = 'Core library for Android development'
+    siteUrl = 'https://github.com/squadit/core'
+    gitUrl = 'https://github.com/squadit/core.git'
+    developerId = 'squadit'
+    developerName = 'Athena Pallas'
+    developerEmail = 'mainthread@yahoo.com'
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/license/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
