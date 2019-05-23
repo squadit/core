@@ -2,6 +2,7 @@ package com.athena.core.util
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.pm.PackageManager
 import android.os.Build
 import android.provider.Settings
 import androidx.core.hardware.fingerprint.FingerprintManagerCompat
@@ -31,7 +32,8 @@ object DeviceUtil {
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) return FingerprintStatus.SDK_NOT_SUPPORTED
 
-        val fingerprintManager = context.getSystemService(Context.FINGERPRINT_SERVICE) ?: return FingerprintStatus.DEVICE_NOT_SUPPORTED
+        val fingerprintManager =
+            context.getSystemService(Context.FINGERPRINT_SERVICE) ?: return FingerprintStatus.DEVICE_NOT_SUPPORTED
 
         val fingerprintManagerCompat = FingerprintManagerCompat.from(context)
 
@@ -42,4 +44,15 @@ object DeviceUtil {
         return FingerprintStatus.OK
     }
 
+    fun isPackageInstalled(packageName: String, packageManager: PackageManager): Boolean {
+        var found = true
+
+        try {
+            packageManager.getPackageInfo(packageName, 0)
+        } catch (e: PackageManager.NameNotFoundException) {
+            found = false
+        }
+
+        return found
+    }
 }
