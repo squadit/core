@@ -5,7 +5,7 @@ ext {
 
     publishedGroupId = 'com.athena.core'
     artifact = 'core'
-    libraryVersion = '0.0.3'
+    libraryVersion = '0.0.4'
 
     libraryDescription = 'Core library for Android development'
     siteUrl = 'https://github.com/squadit/core'
