@@ -1,20 +1,6 @@
 package com.athena.core.extension
 
-import android.content.res.Resources
-import android.util.TypedValue
 import android.view.View
-
-//region density
-
-fun Float.toDpFromPx(): Float = this / Resources.getSystem().displayMetrics.density
-
-fun Float.toPxFromDp(): Float = this * Resources.getSystem().displayMetrics.density
-
-fun Float.toDpFromValue(): Float = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, this, Resources.getSystem().displayMetrics)
-
-//endregion
-
-//region visibility
 
 fun View.showIf(condition: () -> Boolean) {
     if (visibility != View.VISIBLE && condition()) {
@@ -42,4 +28,14 @@ fun View.toggleVisibility() {
     }
 }
 
-//endregion
+fun View.visible() {
+    this.visibility = View.VISIBLE
+}
+
+fun View.invisible() {
+    this.visibility = View.INVISIBLE
+}
+
+fun View.gone() {
+    this.visibility = View.GONE
+}
