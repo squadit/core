@@ -1,6 +1,7 @@
 package com.athena.core.extension
 
 import android.view.View
+import android.view.animation.AnimationUtils
 
 fun View.showIf(condition: () -> Boolean) {
     if (visibility != View.VISIBLE && condition()) {
@@ -38,4 +39,8 @@ fun View.invisible() {
 
 fun View.gone() {
     this.visibility = View.GONE
+}
+
+fun View.animate(animId: Int) {
+    startAnimation(AnimationUtils.loadAnimation(context, animId))
 }
