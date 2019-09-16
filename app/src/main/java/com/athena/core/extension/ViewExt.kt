@@ -41,6 +41,14 @@ fun View.gone() {
     this.visibility = View.GONE
 }
 
+fun View.visibility(show: Boolean) {
+    if (show) {
+        this.visibility = View.VISIBLE
+    } else {
+        this.visibility = View.GONE
+    }
+}
+
 fun View.animate(animId: Int) {
     startAnimation(AnimationUtils.loadAnimation(context, animId))
 }
