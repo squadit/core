@@ -14,7 +14,7 @@ object ConnectionUtil {
         val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val activeNetwork: NetworkInfo? = cm.activeNetworkInfo
 
-        if (!activeNetwork?.isConnected!!) return ConnectionStatus.NOT_CONNECTED
+        if (activeNetwork?.isConnected == null || !activeNetwork.isConnected) return ConnectionStatus.NOT_CONNECTED
 
         when (activeNetwork.type) {
             ConnectivityManager.TYPE_WIFI -> return ConnectionStatus.WIFI
